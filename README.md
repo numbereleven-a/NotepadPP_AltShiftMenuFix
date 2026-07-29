@@ -2,7 +2,7 @@
 
 [Русская версия](README_RU.md)
 
-AltShiftMenuFix is a small Windows x64 plugin that prevents the Notepad++ menu
+AltShiftMenuFix is a small plugin that prevents the Notepad++ menu
 from being activated accidentally after switching the keyboard layout with
 <kbd>Alt</kbd>+<kbd>Shift</kbd>.
 
