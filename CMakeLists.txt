@@ -38,7 +38,7 @@ target_compile_definitions(AltShiftMenuFix PRIVATE
     NOMINMAX
     _WIN32_WINNT=0x0601
     WINVER=0x0601)
-target_link_libraries(AltShiftMenuFix PRIVATE comctl32 user32 kernel32)
+target_link_libraries(AltShiftMenuFix PRIVATE comctl32 shell32 user32 kernel32)
 
 set_target_properties(AltShiftMenuFix PROPERTIES
     CXX_EXTENSIONS OFF

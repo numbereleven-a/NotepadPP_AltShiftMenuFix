@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include <windows.h>
 #include <commctrl.h>
+#include <shellapi.h>
 #include <strsafe.h>
 
+#include <cwchar>
 #include <iterator>
 
 #include "NppPluginApi.h"
@@ -13,6 +15,8 @@ namespace
 constexpr wchar_t kPluginName[] = L"AltShiftMenuFix";
 constexpr wchar_t kEnabledCommandName[] = L"Enabled for this session";
 constexpr wchar_t kAboutCommandName[] = L"About...";
+constexpr wchar_t kRepositoryUrl[] =
+    L"https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix";
 constexpr UINT_PTR kSubclassId = 0x41534D46; // "ASMF"
 constexpr int kCommandCount = 2;
 constexpr int kEnabledCommand = 0;
@@ -43,19 +47,50 @@ void toggleEnabled()
     updateMenuCheck();
 }
 
+HRESULT CALLBACK aboutDialogCallback(HWND, UINT notification, WPARAM, LPARAM parameter, LONG_PTR)
+{
+    if (notification == TDN_HYPERLINK_CLICKED && parameter != 0)
+    {
+        const auto* url = reinterpret_cast<const wchar_t*>(parameter);
+        if (std::wcscmp(url, kRepositoryUrl) == 0)
+            ShellExecuteW(nullptr, L"open", url, nullptr, nullptr, SW_SHOWNORMAL);
+    }
+
+    return S_OK;
+}
+
 void showAbout()
 {
-    MessageBoxW(
-        g_nppData.nppHandle,
-        L"AltShiftMenuFix " ASMF_VERSION_W L"\n\n"
+    constexpr wchar_t kDescription[] =
         L"Prevents the Notepad++ menu from being activated accidentally when "
         L"Alt is released while Shift is still held during an Alt+Shift keyboard "
         L"layout switch.\n\n"
         L"Normal Alt menu access and Alt+letter shortcuts are not changed.\n\n"
-        L"License: GPL-3.0-or-later\n"
-        L"GitHub: https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix",
-        kPluginName,
-        MB_OK | MB_ICONINFORMATION);
+        L"GitHub: <a href=\"https://github.com/numbereleven-a/"
+        L"Notepadpp_AltShiftMenuFix\">"
+        L"https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix</a>";
+
+    TASKDIALOGCONFIG config{};
+    config.cbSize = sizeof(config);
+    config.hwndParent = g_nppData.nppHandle;
+    config.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_ALLOW_DIALOG_CANCELLATION;
+    config.dwCommonButtons = TDCBF_OK_BUTTON;
+    config.pszWindowTitle = kPluginName;
+    config.pszMainInstruction = L"AltShiftMenuFix " ASMF_VERSION_W;
+    config.pszContent = kDescription;
+    config.pszFooter = L"License: GPL-3.0-or-later";
+    config.pfCallback = aboutDialogCallback;
+
+    if (FAILED(TaskDialogIndirect(&config, nullptr, nullptr, nullptr)))
+    {
+        MessageBoxW(
+            g_nppData.nppHandle,
+            L"AltShiftMenuFix " ASMF_VERSION_W L"\n\n"
+            L"License: GPL-3.0-or-later\n"
+            L"GitHub: https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix",
+            kPluginName,
+            MB_OK | MB_ICONINFORMATION);
+    }
 }
 
 void setCommand(int index, const wchar_t* name, PluginCommand callback, bool checked = false)
