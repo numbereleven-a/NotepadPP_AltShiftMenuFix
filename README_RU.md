@@ -2,7 +2,7 @@
 
 [English version](README.md)
 
-AltShiftMenuFix — небольшой плагин для Windows x64, который предотвращает
+AltShiftMenuFix — небольшой плагин, который предотвращает
 случайную активацию меню Notepad++ после переключения раскладки клавиатуры
 сочетанием <kbd>Alt</kbd>+<kbd>Shift</kbd>.
 
