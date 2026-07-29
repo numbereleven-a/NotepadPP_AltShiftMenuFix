@@ -94,7 +94,7 @@ ctest --test-dir build --output-on-failure
 AltShiftMenuFix распространяется на условиях
 [GNU General Public License v3.0 или более поздней версии](LICENSE).
 
-## Downloads
+## Скачать
 
-- [Последний релиз](https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix/releases/latest)
-- [Скачать AltShiftMenuFix 1.0 для Notepad++ x64](https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix/releases/download/v1.0/NppAltShiftMenuFix-1.0-x64.zip)
+[![GitHub Latest](https://img.shields.io/github/v/release/numbereleven-a/NotepadPP_AltShiftMenuFix)](https://github.com/numbereleven-a/NotepadPP_AltShiftMenuFix/releases/latest)
+[![GitHub Downloads](https://img.shields.io/github/downloads/numbereleven-a/NotepadPP_AltShiftMenuFix/total)](https://github.com/numbereleven-a/NotepadPP_AltShiftMenuFix/releases)

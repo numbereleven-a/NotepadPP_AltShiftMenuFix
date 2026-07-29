@@ -99,7 +99,7 @@ docking framework.
 AltShiftMenuFix is distributed under the
 [GNU General Public License v3.0 or later](LICENSE).
 
-## Downloads
+## Download
 
-- [Latest release](https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix/releases/latest)
-- [Download AltShiftMenuFix 1.0 for Notepad++ x64](https://github.com/numbereleven-a/Notepadpp_AltShiftMenuFix/releases/download/v1.0/NppAltShiftMenuFix-1.0-x64.zip)
+[![GitHub Latest](https://img.shields.io/github/v/release/numbereleven-a/NotepadPP_AltShiftMenuFix)](https://github.com/numbereleven-a/NotepadPP_AltShiftMenuFix/releases/latest)
+[![GitHub Downloads](https://img.shields.io/github/downloads/numbereleven-a/NotepadPP_AltShiftMenuFix/total)](https://github.com/numbereleven-a/NotepadPP_AltShiftMenuFix/releases)
