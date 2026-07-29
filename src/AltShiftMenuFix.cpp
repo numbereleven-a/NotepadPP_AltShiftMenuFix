@@ -3,6 +3,8 @@
 #include <commctrl.h>
 #include <strsafe.h>
 
+#include <iterator>
+
 #include "NppPluginApi.h"
 #include "Version.h"
 
@@ -15,8 +17,8 @@ constexpr UINT_PTR kSubclassId = 0x41534D46; // "ASMF"
 constexpr int kCommandCount = 2;
 constexpr int kEnabledCommand = 0;
 
-static_assert(_countof(kEnabledCommandName) <= kNppMenuItemSize);
-static_assert(_countof(kAboutCommandName) <= kNppMenuItemSize);
+static_assert(std::size(kEnabledCommandName) <= kNppMenuItemSize);
+static_assert(std::size(kAboutCommandName) <= kNppMenuItemSize);
 
 NppData g_nppData{};
 FuncItem g_commands[kCommandCount]{};

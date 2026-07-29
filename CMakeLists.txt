@@ -59,9 +59,15 @@ else()
 endif()
 
 if(BUILD_TESTING)
+    set(ASMF_TEST_RESOURCES)
+    if(NOT MSVC)
+        list(APPEND ASMF_TEST_RESOURCES
+            ${CMAKE_CURRENT_BINARY_DIR}/generated/TestHost.rc)
+    endif()
+
     add_executable(AltShiftMenuFixIntegrationTest
         tests/IntegrationTest.cpp
-        ${CMAKE_CURRENT_BINARY_DIR}/generated/TestHost.rc)
+        ${ASMF_TEST_RESOURCES})
     target_include_directories(AltShiftMenuFixIntegrationTest PRIVATE include)
     target_compile_features(AltShiftMenuFixIntegrationTest PRIVATE cxx_std_17)
     target_compile_definitions(AltShiftMenuFixIntegrationTest PRIVATE
