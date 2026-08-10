@@ -49,7 +49,7 @@ enabled, the letter is inserted into the document normally.
 
 ## Installation
 
-1. Download `NppAltShiftMenuFix-1.0-x64.zip` from the Downloads section below.
+1. Download `AltShiftMenuFix-1.0-x64.zip` from the Downloads section below.
 2. Close every Notepad++ window.
 3. Create `%ProgramFiles%\Notepad++\plugins\AltShiftMenuFix` if it does not
    already exist.

@@ -48,7 +48,7 @@ Windows воспринимает отпускание Alt как сигнал д
 
 ## Установка
 
-1. Скачайте `NppAltShiftMenuFix-1.0-x64.zip` в разделе Downloads ниже.
+1. Скачайте `AltShiftMenuFix-1.0-x64.zip` в разделе Downloads ниже.
 2. Закройте все окна Notepad++.
 3. Создайте `%ProgramFiles%\Notepad++\plugins\AltShiftMenuFix`, если этой папки
    ещё нет.
